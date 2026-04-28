@@ -5,7 +5,6 @@
 Every learner has a graveyard of closed tabs - perfect 
 explanations, clever analogies, "explain like I'm five" 
 moments that clicked once and disappeared forever.
-
 The old workflow was painful. Copy the text. Switch tabs. 
 Open your notes app. Paste. Add context. Repeat 10 times 
 a day until you give up.
@@ -70,6 +69,8 @@ You're reading an article, a thread, or analysing information for a research pap
 **Option B - Session Mode:** You're going deep on one topic for a while. Open the extension popup, type your topic name, hit **Start Session**. Now every time you press `Alt+C` with text highlighted, it saves silently to that topic - no panel, no clicks, just a small toast confirmation. End the session when you're done.
 
 Good for: research sessions, reading streaks, or any time you want to stay in the flow and collect clips in the background.
+
+Note - You can go to "Manage Extensions" in Chrome settings and turn off the extension after use.
 
 ---
 
