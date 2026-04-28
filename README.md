@@ -5,7 +5,6 @@
 Every learner has a graveyard of closed tabs - perfect 
 explanations, clever analogies, "explain like I'm five" 
 moments that clicked once and disappeared forever.
-
 The old workflow was painful. Copy the text. Switch tabs. 
 Open your notes app. Paste. Add context. Repeat 10 times 
 a day until you give up.
