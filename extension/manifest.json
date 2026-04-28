@@ -25,7 +25,7 @@
         "default": "Alt+C",
         "mac": "Alt+C"
       },
-      "description": "Save highlighted text to Clipped"
+      "description": "Save highlighted text to Clipped (Alt+C on Windows/Linux, Option+C on Mac)"
     }
   },
   "action": {

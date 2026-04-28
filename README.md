@@ -37,7 +37,7 @@ Just highlight, save, and keep reading.
 ## Features
 
 - **Clip anything** - paste text from Claude, ChatGPT, Gemini, articles, or anywhere
-- **AI-written titles and summaries** - Gemini reads your existing notes for context, then writes a short title and summary for each new clip
+- **AI-written titles and summaries** - Clipped reads your existing notes for context, then writes a short title and summary for each new clip
 - **Preserved original** - the clipped text is never paraphrased, always shown exactly as you saved it
 - **Topics and tags** - organize clips into topics (e.g. "React", "System Design") with tags: concept / example / quote
 - **Search** - full-text search across all your clips
@@ -45,7 +45,7 @@ Just highlight, save, and keep reading.
 - **Chrome extension (V2)** - clip text from any webpage without leaving the page
   - Floating panel appears on text selection
   - Session Mode: start a topic session and auto-save clips silently as you read
-  - Keyboard shortcut `Alt+C` to save highlighted text instantly
+  - Keyboard shortcut `Alt+C` (Windows/Linux) / `Option+C` (Mac) to save highlighted text instantly
   - Works on any site - uses shadow DOM so it never conflicts with page styles
 
 ---
@@ -56,7 +56,7 @@ There are two ways to use Clipped depending on how you're learning.
 
 ### Way 1 - The app (when you're jumping between topics)
 
-You're reading different things across different subjects. You open Clipped, paste the text that clicked, pick a topic, pick a tag, and hit **Add to notes**. Gemini reads your existing notes from that topic for context, writes a short title and 1-2 line summary, and stores your clip with the original text preserved in an amber block - word for word, never paraphrased.
+You're reading different things across different subjects. You open Clipped, paste the text that clicked, pick a topic, pick a tag, and hit **Add to notes**. Your configured AI model reads your existing notes from that topic for context, writes a short title and 1-2 line summary, and stores your clip with the original text preserved in an amber block - word for word, never paraphrased.
 
 Good for: saving standout explanations from AI chats, articles, or docs where your notes are scattered across topics.
 
@@ -66,7 +66,7 @@ You're reading an article, a thread, or analysing information for a research pap
 
 **Option A - Highlight and save:** Select any text on the page. A floating panel appears below your selection. Choose your topic and tag, click **Save to Clipped**. Done- no tab switching.
 
-**Option B - Session Mode:** You're going deep on one topic for a while. Open the extension popup, type your topic name, hit **Start Session**. Now every time you press `Alt+C` with text highlighted, it saves silently to that topic - no panel, no clicks, just a small toast confirmation. End the session when you're done.
+**Option B - Session Mode:** You're going deep on one topic for a while. Open the extension popup, type your topic name, hit **Start Session**. Now every time you press `Alt+C` (Windows/Linux) / `Option+C` (Mac) with text highlighted, it saves silently to that topic - no panel, no clicks, just a small toast confirmation. End the session when you're done.
 
 Good for: research sessions, reading streaks, or any time you want to stay in the flow and collect clips in the background.
 
@@ -81,7 +81,7 @@ Note - You can go to "Manage Extensions" in Chrome settings and turn off the ext
 | Frontend  | React + Vite + Tailwind CSS          |
 | Backend   | Node.js + Express                    |
 | Database  | Supabase (PostgreSQL)                |
-| AI        | Google Gemini API (gemini-2.5-flash) |
+| AI        | OpenAI (gpt-4o-mini) or Google Gemini (gemini-2.5-flash) |
 | Extension | Chrome Manifest V3, Vanilla JS       |
 
 ---
@@ -92,7 +92,7 @@ Note - You can go to "Manage Extensions" in Chrome settings and turn off the ext
 
 - Node.js 18+
 - A [Supabase](https://supabase.com) account (free tier is fine)
-- A [Google AI Studio](https://aistudio.google.com) account for a Gemini API key
+- At least one LLM API key -[Google AI Studio](https://aistudio.google.com) (Gemini, free tier) or [OpenAI](https://platform.openai.com/api-keys) (gpt-4o-mini, pay-as-you-go)
 
 ### 1. Clone the repo
 
@@ -126,7 +126,8 @@ create table notes (
 
 create table settings (
   id integer primary key default 1,
-  gemini_api_key text
+  anthropic_api_key text,
+  openai_api_key text
 );
 ```
 
@@ -173,9 +174,24 @@ cd frontend
 npm run dev
 ```
 
-### 8. Add your Gemini API key
+### 8. Add your LLM API key
 
-Open the app at `http://localhost:5173`, go to **Settings**, and paste your Gemini API key. It's stored in Supabase - no environment variable needed on the frontend.
+You have two options -pick whichever suits you:
+
+**Option A -via the app Settings page** (no config file needed)
+
+Open the app at `http://localhost:5173`, go to **Settings**. You'll see separate fields for OpenAI and Gemini. Add at least one. Keys are stored in Supabase and used server-side only. If both are saved, OpenAI takes precedence.
+
+**Option B -via `backend/.env`** (takes priority over the Settings page)
+
+Add one or both keys to your `.env` file:
+
+```
+OPENAI_API_KEY=sk-...
+GEMINI_API_KEY=AIza...
+```
+
+If both are set, OpenAI is used.
 
 ### 9. Load the Chrome extension (optional)
 
@@ -194,21 +210,27 @@ Open the app at `http://localhost:5173`, go to **Settings**, and paste your Gemi
 
 **Using the extension:**
 
-- **Floating panel** — highlight any text (20+ characters) on any page and a panel appears below your selection. Pick a topic and tag, click Save.
-- **Session Mode** - click the extension icon on chrome toolbar, type a topic name, hit **Start Session**. Everything you highlight in that tab gets saved to that topic automatically. Press `Alt+C` to clip with a keyboard shortcut.
+- **Floating panel** -highlight any text (20+ characters) on any page and a panel appears below your selection. Pick a topic and tag, click Save.
+- **Session Mode** - click the extension icon on chrome toolbar, type a topic name, hit **Start Session**. Everything you highlight in that tab gets saved to that topic automatically. Press `Alt+C` (Windows/Linux) / `Option+C` (Mac) to clip with a keyboard shortcut.
 - **End session** by clicking the extension icon again and hitting **End Session**.
 
 ---
 
-## API cost
+## LLM configuration
 
-Clipped uses the **Google Gemini API** (`gemini-2.5-flash`).
+Clipped supports **Google Gemini** and **OpenAI**. You need at least one. If both are configured, OpenAI takes precedence.
 
-- Free tier: **1,500 requests/day** - no credit card required
-- Each "Add to notes" click uses one API call
-- For personal use, the free tier is more than enough
+| Provider | Model | Cost |
+|----------|-------|------|
+| Gemini | `gemini-2.5-flash` | Free tier: 1,500 req/day, no credit card |
+| OpenAI | `gpt-4o-mini` | Pay-as-you-go, very cheap for personal use |
 
-Get your key at [aistudio.google.com](https://aistudio.google.com).
+**Two ways to configure:**
+
+1. **Settings page** (in-app) -go to Settings and enter your key(s) directly. Stored in Supabase, never exposed to the browser.
+2. **`.env` file** -add `OPENAI_API_KEY` and/or `GEMINI_API_KEY` to `backend/.env`. Takes priority over the Settings page.
+
+Get keys: [Google AI Studio](https://aistudio.google.com) · [OpenAI Platform](https://platform.openai.com/api-keys)
 
 ---
 
