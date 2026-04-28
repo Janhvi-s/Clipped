@@ -1,6 +1,6 @@
 # Clipped
 
-** Your Learning Archive, Context Preserved **
+## Your Learning Archive, Context Preserved 
 
 Every learner has a graveyard of closed tabs — perfect 
 explanations, clever analogies, "explain like I'm five" 
