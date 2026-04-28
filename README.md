@@ -2,7 +2,7 @@
 
 ## Your Learning Archive, Context Preserved 
 
-Every learner has a graveyard of closed tabs — perfect 
+Every learner has a graveyard of closed tabs - perfect 
 explanations, clever analogies, "explain like I'm five" 
 moments that clicked once and disappeared forever.
 
@@ -13,7 +13,7 @@ a day until you give up.
 Clipped is built to eliminate that friction entirely.
 
 Highlight any text on any webpage, AI chat, or article 
-and save it instantly — word for word, automatically tagged, 
+and save it instantly - word for word, automatically tagged, 
 organised by topic, and wrapped with AI-generated context 
 so it still makes sense when you come back to it weeks later.
 
@@ -30,26 +30,39 @@ Just highlight, save, and keep reading.
 
 ## Features
 
-- **Clip anything** — paste text from Claude, ChatGPT, Gemini, articles, or anywhere
-- **AI-written titles and summaries** — Gemini reads your existing notes for context, then writes a short title and summary for each new clip
-- **Preserved original** — the clipped text is never paraphrased, always shown exactly as you saved it
-- **Topics and tags** — organize clips into topics (e.g. "React", "System Design") with tags: concept / example / quote
-- **Search** — full-text search across all your clips
-- **Dark mode** — toggle between light and dark
-- **Chrome extension (V2)** — clip text from any webpage without leaving the page
+- **Clip anything** - paste text from Claude, ChatGPT, Gemini, articles, or anywhere
+- **AI-written titles and summaries** - Gemini reads your existing notes for context, then writes a short title and summary for each new clip
+- **Preserved original** - the clipped text is never paraphrased, always shown exactly as you saved it
+- **Topics and tags** - organize clips into topics (e.g. "React", "System Design") with tags: concept / example / quote
+- **Search** - full-text search across all your clips
+- **Dark mode** - toggle between light and dark
+- **Chrome extension (V2)** - clip text from any webpage without leaving the page
   - Floating panel appears on text selection
   - Session Mode: start a topic session and auto-save clips silently as you read
   - Keyboard shortcut `Alt+C` to save highlighted text instantly
-  - Works on any site — uses shadow DOM so it never conflicts with page styles
+  - Works on any site - uses shadow DOM so it never conflicts with page styles
 
 ---
 
 ## How it works
 
-1. **Clip** — paste or highlight the exact text that helped you understand something
-2. **Tag** — choose a topic and tag (concept, example, or quote)
-3. **AI processes** — Gemini reads your existing notes from that topic for context, then writes a title and 1-2 line summary
-4. **Saved** — your note is stored with the original clip preserved in an amber block, ready to revisit
+There are two ways to use Clipped depending on how you're learning.
+
+### Way 1 - The app (when you're jumping between topics)
+
+You're reading different things across different subjects. You open Clipped, paste the text that clicked, pick a topic, pick a tag, and hit **Add to notes**. Gemini reads your existing notes from that topic for context, writes a short title and 1-2 line summary, and stores your clip with the original text preserved in an amber block - word for word, never paraphrased.
+
+Good for: saving standout explanations from AI chats, articles, or docs where your notes are scattered across topics.
+
+### Way 2 - The Chrome extension (when you're deep in one thing)
+
+You're reading an article, a thread, or analysing information for a research paper and want to save related things on the go
+
+**Option A - Highlight and save:** Select any text on the page. A floating panel appears below your selection. Choose your topic and tag, click **Save to Clipped**. Done- no tab switching.
+
+**Option B - Session Mode:** You're going deep on one topic for a while. Open the extension popup, type your topic name, hit **Start Session**. Now every time you press `Alt+C` with text highlighted, it saves silently to that topic - no panel, no clicks, just a small toast confirmation. End the session when you're done.
+
+Good for: research sessions, reading streaks, or any time you want to stay in the flow and collect clips in the background.
 
 ---
 
@@ -154,7 +167,7 @@ npm run dev
 
 ### 8. Add your Gemini API key
 
-Open the app at `http://localhost:5173`, go to **Settings**, and paste your Gemini API key. It's stored in Supabase — no environment variable needed on the frontend.
+Open the app at `http://localhost:5173`, go to **Settings**, and paste your Gemini API key. It's stored in Supabase - no environment variable needed on the frontend.
 
 ### 9. Load the Chrome extension (optional)
 
@@ -166,7 +179,7 @@ See [extension/README.md](extension/README.md) for step-by-step instructions to 
 
 Clipped uses the **Google Gemini API** (`gemini-2.5-flash`).
 
-- Free tier: **1,500 requests/day** — no credit card required
+- Free tier: **1,500 requests/day** - no credit card required
 - Each "Add to notes" click uses one API call
 - For personal use, the free tier is more than enough
 
@@ -176,7 +189,7 @@ Get your key at [aistudio.google.com](https://aistudio.google.com).
 
 ## Contributing
 
-Contributions are welcome — bug fixes, features, UI improvements, or documentation.
+Contributions are welcome - bug fixes, features, UI improvements, or documentation.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to get started. First-time contributors are very welcome.
 
@@ -184,4 +197,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) to get started. First-time contributors a
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).
