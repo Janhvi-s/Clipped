@@ -71,6 +71,8 @@ You're reading an article, a thread, or analysing information for a research pap
 
 Good for: research sessions, reading streaks, or any time you want to stay in the flow and collect clips in the background.
 
+Note - You can go to "Manage Extensions" in Chrome settings and turn off the extension after use.
+
 ---
 
 ## Tech stack
