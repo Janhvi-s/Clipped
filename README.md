@@ -22,9 +22,16 @@ Just highlight, save, and keep reading.
 
 ---
 
-## Screenshots
+## The Web App
 
-> _Screenshots coming soon_
+<img width="1902" height="892" alt="image" src="https://github.com/user-attachments/assets/304678d8-f7ab-4e38-9e25-1d1b18d57605" />
+
+##    
+
+<img width="1907" height="902" alt="image" src="https://github.com/user-attachments/assets/4307d7a6-b83e-4c5b-82b4-0d3cf4dc83ee" />
+
+
+
 
 ---
 
