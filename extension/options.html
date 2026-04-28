@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clipped — Extension Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="7" width="22" height="22" rx="3" fill="#6366f1" fill-opacity=".15" stroke="#6366f1" stroke-width="1.6"/>
+        <rect x="5" y="5.5" width="22" height="3" rx="1.5" fill="#6366f1" fill-opacity=".25" stroke="#6366f1" stroke-width="1.2"/>
+        <circle cx="10" cy="7" r="1.4" fill="#6366f1" fill-opacity=".6"/>
+        <circle cx="16" cy="7" r="1.4" fill="#6366f1" fill-opacity=".6"/>
+        <circle cx="22" cy="7" r="1.4" fill="#6366f1" fill-opacity=".6"/>
+        <line x1="9" y1="15" x2="23" y2="15" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="9" y1="19.5" x2="23" y2="19.5" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="9" y1="24" x2="17" y2="24" stroke="#6366f1" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="20" y1="24.5" x2="25" y2="19.5" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h1>Clipped <span class="subtitle">Extension Settings</span></h1>
+        <p class="tagline">Highlight text anywhere · AI writes the context</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Backend Connection</h2>
+        <p>Point the extension at your running Clipped backend.</p>
+      </div>
+
+      <div class="field">
+        <label for="backendUrl">Backend URL</label>
+        <input
+          type="url"
+          id="backendUrl"
+          placeholder="http://localhost:3001"
+          spellcheck="false"
+        />
+        <p class="hint">Default: <code>http://localhost:3001</code> — change if you've deployed the backend remotely.</p>
+      </div>
+
+      <div class="btn-row">
+        <button id="saveBtn" class="btn-primary">Save</button>
+        <button id="testBtn" class="btn-secondary">Test connection</button>
+      </div>
+
+      <div id="status" class="status"></div>
+    </div>
+
+    <div class="card usage-card">
+      <div class="card-header">
+        <h2>How to use</h2>
+      </div>
+      <ol class="steps">
+        <li>Make sure the Clipped backend is running (<code>npm run dev</code> in <code>/backend</code>).</li>
+        <li>Go to any webpage and <strong>highlight text</strong> (at least 20 characters).</li>
+        <li>A floating panel appears — pick a topic, choose a tag, click <strong>Save to Clipped</strong>.</li>
+        <li>The note appears instantly in your Clipped web app.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
