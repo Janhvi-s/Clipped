@@ -43,12 +43,8 @@
     const rect = range.getBoundingClientRect();
 
     getSessionState().then((session) => {
-      if (session.active) {
-        const sourceText = window.location.href || window.location.hostname || 'Unknown';
-        handleSessionSave(null, text, sourceText, session, () => 'concept', false);
-      } else {
-        openPanel(text, rect, session);
-      }
+      if (session.active) return;
+      openPanel(text, rect, session);
     }).catch((err) => console.error('[Clipped] mouseup error:', err));
   });
 

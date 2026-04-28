@@ -21,6 +21,7 @@ npm-debug.log*
 # Editor
 .vscode/
 .idea/
+.claude/
 
 # Misc
 readme_prompt.md
