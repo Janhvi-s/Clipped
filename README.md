@@ -178,7 +178,24 @@ Open the app at `http://localhost:5173`, go to **Settings**, and paste your Gemi
 
 ### 9. Load the Chrome extension (optional)
 
-See [extension/README.md](extension/README.md) for step-by-step instructions to load the extension in Chrome.
+1. Open Chrome and go to `chrome://extensions`
+2. Enable **Developer mode** (toggle in the top-right corner)
+3. Click **Load unpacked**
+4. Select the `/extension` folder from this repo
+5. The Clipped icon appears in your Chrome toolbar
+
+**First-time setup:**
+
+1. Make sure the backend is running (`npm run dev` in `/backend`)
+2. Click the Clipped icon on extensions page → **Options** (or right-click → Options)
+3. The default backend URL is `http://localhost:3001` - click **Test connection** to confirm it's working
+4. If you've deployed the backend, update the URL and save
+
+**Using the extension:**
+
+- **Floating panel** — highlight any text (20+ characters) on any page and a panel appears below your selection. Pick a topic and tag, click Save.
+- **Session Mode** - click the extension icon on chrome toolbar, type a topic name, hit **Start Session**. Everything you highlight in that tab gets saved to that topic automatically. Press `Alt+C` to clip with a keyboard shortcut.
+- **End session** by clicking the extension icon again and hitting **End Session**.
 
 ---
 
