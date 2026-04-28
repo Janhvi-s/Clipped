@@ -25,7 +25,10 @@ Just highlight, save, and keep reading.
 ## The Web App
 
 <img width="1902" height="892" alt="image" src="https://github.com/user-attachments/assets/304678d8-f7ab-4e38-9e25-1d1b18d57605" />
-<img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/2d14d230-ecbd-427d-8430-80542ad9d5a7" />
+
+##    
+
+<img width="1907" height="902" alt="image" src="https://github.com/user-attachments/assets/4307d7a6-b83e-4c5b-82b4-0d3cf4dc83ee" />
 
 
 
