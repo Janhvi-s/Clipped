@@ -3,9 +3,9 @@ import NoteCard from './NoteCard.jsx';
 
 export default function NotesFeed({ notes, loading, search, onSearchChange, onDeleteNote, onUpdateNote, topics }) {
   return (
-    <main className="flex-1 min-w-0 flex flex-col h-full overflow-hidden bg-gray-50 dark:bg-gray-950">
+    <main className="flex-1 min-w-0 flex flex-col h-full overflow-hidden dark:bg-gray-950" style={{ background: '#ddd6fe' }}>
       {/* Search bar */}
-      <div className="px-8 pt-6 pb-4 border-b border-gray-200 dark:border-gray-800">
+      <div className="px-8 pt-6 pb-4 border-b border-violet-200 dark:border-gray-800">
         <div className="relative">
           <svg
             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
